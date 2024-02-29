@@ -12,7 +12,7 @@ function findRecursively(node: BNodeNum | null, val: number): BNodeNum | null {
 
   const nextNode = (current.val > val) ? current.left : current.right;
 
-  return findRecursively(nextNode, val)
+  return findRecursively(nextNode, val);
 }
 
 
