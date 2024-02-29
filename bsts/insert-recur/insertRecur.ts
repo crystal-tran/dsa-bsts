@@ -1,10 +1,34 @@
-import { BSTNum } from "../common/bst";
+import { BSTNum, BNodeNum } from "../common/bst";
 
 /** insertRecursively(val): Insert a new node into the BST with value val.
  * Uses recursion. */
 
-function insertRecursively(bst: BSTNum, val: number): void {
+function insertRecur(bst: BSTNum, val: number): void {
+  //start at root for BST
+  //base case: null => add there (need to make new node with val)
+  /// if val > node.val => go right and call again
+  /// if val < node.val => go left and call again
+
+  if (bst.root === null) {
+    bst.root = new BNodeNum(val);
+    return;
+  }
+
+
+  //At this point, we know we're in a node
+  /// val > node.val && node.right is null => insert right
+  /// val < node.val && node.left is null => insert left
+
+  let curr = bst.root;
+  if (val > curr.val) {
+    const rightTree = new BSTNum(curr.right);
+    insertRecur(rightTree, val);
+  }
+  else {
+    const leftTree = new BSTNum(curr.left);
+    insertRecur(leftTree, val);
+  }
 }
 
-export { insertRecursively };
+export { insertRecur };
 
