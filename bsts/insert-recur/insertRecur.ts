@@ -10,10 +10,9 @@ function insertRecur(bst: BSTNum, val: number): void {
   /// if val < node.val => go left and call again
 
   if (bst.root === null) {
-    bst.root = new BNodeNum(val);
+    bst.root = new BNodeNum(val); //root 7
     return;
   }
-
 
   //At this point, we know we're in a node
   /// val > node.val && node.right is null => insert right
@@ -23,10 +22,12 @@ function insertRecur(bst: BSTNum, val: number): void {
   if (val > curr.val) {
     const rightTree = new BSTNum(curr.right);
     insertRecur(rightTree, val);
+    curr.right = rightTree.root;
   }
   else {
     const leftTree = new BSTNum(curr.left);
     insertRecur(leftTree, val);
+    curr.left = leftTree.root;
   }
 }
 

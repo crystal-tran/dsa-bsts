@@ -16,7 +16,7 @@ function smBst(): BSTNum {
           new BNodeNum(20)));
 }
 
-/** Large tree for tests:
+/** Large tree for tests
  *
  *               50
  *           /       \
