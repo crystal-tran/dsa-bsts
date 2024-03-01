@@ -14,7 +14,7 @@ function bfs(node: BNodeNum | null): number[] {
   const toVisit = new Queue([node]);
 
   while (!toVisit.isEmpty()) {
-    let curr = toVisit.dequeue(); //TODO: make const
+    const curr = toVisit.dequeue();
     visitedNodes.push(curr.val);
     if (curr.left) toVisit.enqueue(curr.left);
     if (curr.right) toVisit.enqueue(curr.right);
